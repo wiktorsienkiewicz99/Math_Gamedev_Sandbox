@@ -70,7 +70,8 @@ screen = pygame.display.set_mode((screen_width, screen_height), DOUBLEBUF | OPEN
 pygame.display.set_caption("OpenGL window")
 done = False
 white = pygame.Color(255, 255, 255)
-gluPerspective(30, (screen_width // screen_height), 0.1, 100.0) # set camera FOV, ratio, near and far plane
+# use floating point division to keep the aspect ratio intact
+gluPerspective(30, (screen_width / screen_height), 0.1, 100.0) # set camera FOV, ratio, near and far plane
 glOrtho(-10, 10, 10, -10, 0.1, 100.0)
 glTranslatef(-0.5, -0.5, -10.0) # place camera
 
